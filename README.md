@@ -21,3 +21,5 @@ get_next_line is to..
 3. `open()` function
 
 ## RESOURCES
+
+1. [gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line)
