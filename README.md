@@ -22,7 +22,9 @@ get_next_line is to..
 
 ## RESOURCES
 
-1. [gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line)  
+1. [gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line)
+2. [buffer](https://stackoverflow.com/questions/27993971/understanding-buffering-in-c)
+3. [flushing](https://stackoverflow.com/questions/47735850/what-exactly-is-flushing)
 
 ### FOOTNOTES
 
