@@ -16,7 +16,7 @@ get_next_line is to..
 
 
 ### Main Things Learnt
-1. `Static Variables` <sup>[1](#myfootnote1)</sup>
+1. `Static Variables` <sup>[1](#staticvariable)</sup>
 2. `read()` function
 3. `open()` function
 
