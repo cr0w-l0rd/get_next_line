@@ -16,13 +16,14 @@ get_next_line is to..
 
 
 ### Main Things Learnt
-1. `Static Variables`
+1. `Static Variables` <sup>[1](#myfootnote1)</sup>
 2. `read()` function
 3. `open()` function
 
-<sup>[1](#myfootnote1)</sup>
-
 ## RESOURCES
 
-1. [gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line)
-<a name="myfootnote1">1</a>: Footnote content goes here
+1. [gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line)  
+
+### FOOTNOTES
+
+<a name="staticvariable">1</a>: [Static Variable : Geeks for Geeks](https://www.geeksforgeeks.org/c/static-variables-in-c/)
