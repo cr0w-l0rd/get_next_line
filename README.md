@@ -1,6 +1,6 @@
-*This project has been created as part of the 42 curriculum by mbiusing.*
-
 # get_next_line
+
+*This project has been created as part of the 42 curriculum by mbiusing.*
 
 Summary:  
 This activity is about programming a function that returns a line read from a `file descriptor`.
@@ -25,6 +25,7 @@ get_next_line is to..
 1. [gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line)
 2. [buffer](https://stackoverflow.com/questions/27993971/understanding-buffering-in-c)
 3. [flushing](https://stackoverflow.com/questions/47735850/what-exactly-is-flushing)
+4. 
 
 ### FOOTNOTES
 
