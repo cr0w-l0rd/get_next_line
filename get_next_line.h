@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbiusing <mbiusing@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 21:24:32 by mbiusing          #+#    #+#             */
-/*   Updated: 2026/02/27 13:58:27 by mbiusing         ###   ########.fr       */
+/*   Created: 2026/02/23 21:24:28 by mbiusing          #+#    #+#             */
+/*   Updated: 2026/02/27 13:55:55 by mbiusing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*get_next_line(int fd)
-{
-	int			bytes_read;
-	char		*buffer;
-	
+# include <stdlib.h>
+# include <stdio.h>
+# include <stdint.h>
 
-	buffer = ft_calloc()
-}
+# define BUFF_SIZE 2048
+
+char	*get_next_line(int fd);
+
+#endif

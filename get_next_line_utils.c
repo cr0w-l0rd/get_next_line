@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbiusing <mbiusing@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 21:24:32 by mbiusing          #+#    #+#             */
-/*   Updated: 2026/02/27 13:58:27 by mbiusing         ###   ########.fr       */
+/*   Created: 2026/02/23 21:24:35 by mbiusing          #+#    #+#             */
+/*   Updated: 2026/02/27 13:54:47 by mbiusing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int			bytes_read;
-	char		*buffer;
-	
+	void	*memalloced;
+	size_t	actualsize;
 
-	buffer = ft_calloc()
+	if (size != 0 && nmemb > SIZE_MAX / size)
+		return (NULL);
+	actualsize = nmemb * size;
+	memalloced = malloc(actualsize);
+	if (!memalloced)
+		return (NULL);
+	ft_bzero(memalloced, actualsize);
+	return (memalloced);
 }
