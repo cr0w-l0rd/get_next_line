@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbiusing <mbiusing@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 21:24:28 by mbiusing          #+#    #+#             */
-/*   Updated: 2026/02/27 13:55:55 by mbiusing         ###   ########.fr       */
+/*   Created: 2026/03/25 00:00:00 by mbiusing          #+#    #+#             */
+/*   Updated: 2026/03/25 16:30:29 by mbiusing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 # define GET_NEXT_LINE_H
 
 # include <stdlib.h>
-# include <stdio.h>
-# include <stdint.h>
+# include <unistd.h>
 
-# define BUFF_SIZE 2048
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 67
+# endif
 
 char	*get_next_line(int fd);
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s);
+char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_strjoin(const char *s1, const char *s2);
 
 #endif

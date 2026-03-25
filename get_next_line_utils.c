@@ -5,24 +5,107 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbiusing <mbiusing@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 21:24:35 by mbiusing          #+#    #+#             */
-/*   Updated: 2026/02/27 13:54:47 by mbiusing         ###   ########.fr       */
+/*   Created: 2026/03/25 00:00:00 by mbiusing          #+#    #+#             */
+/*   Updated: 2026/03/25 16:29:15 by mbiusing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+size_t	ft_strlen(const char *s)
 {
-	void	*memalloced;
-	size_t	actualsize;
+	size_t	len;
 
-	if (size != 0 && nmemb > SIZE_MAX / size)
+	len = 0;
+	if (!s)
+		return (0);
+	while (s[len])
+		len++;
+	return (len);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
+	char	ch;
+
+	if (!s)
 		return (NULL);
-	actualsize = nmemb * size;
-	memalloced = malloc(actualsize);
-	if (!memalloced)
+	ch = (char)c;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == ch)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if (ch == '\0')
+		return ((char *)&s[i]);
+	return (NULL);
+}
+
+char	*ft_strdup(const char *s)
+{
+	char	*dup;
+	size_t	i;
+
+	if (!s)
 		return (NULL);
-	ft_bzero(memalloced, actualsize);
-	return (memalloced);
+	dup = malloc(ft_strlen(s) + 1);
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}
+
+char	*ft_substr(const char *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*sub;
+
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	sub = malloc(len + 1);
+	if (!sub)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start + i])
+	{
+		sub[i] = s[start + i];
+		i++;
+	}
+	sub[i] = '\0';
+	return (sub);
+}
+
+char	*ft_strjoin(const char *s1, const char *s2)
+{
+	char	*str;
+	size_t	i;
+	size_t	j;
+
+	if (!s1 || !s2)
+		return (NULL);
+	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i])
+		str[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		str[j++] = s2[i++];
+	str[j] = '\0';
+	return (str);
 }
