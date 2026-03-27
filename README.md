@@ -2,7 +2,6 @@
 
 # get_next_line
 
-Summary:  
 This activity is about programming a function that returns a line read from a `file descriptor`.
 
 ## DESCRIPTION
@@ -10,7 +9,7 @@ This activity is about programming a function that returns a line read from a `f
 The project `get_next_line` is to create a function that takes in a `file descriptor` and outputs the next line in the file as a C-style string (unless an error occurs, or there is nothing left to read).
 
 A file descriptor is an **integer** like an **identifier** for a file that's in the program's **open file table**. 
-When a file is opened, it's given a file descriptor (typically the lowest positive integer that hasn't been used yet). 
+When a file is opened, it's given a file descriptor (the lowest positive integer that hasn't been used yet, starting from 3). 
 
 #### Standard File Descriptors
 When any process starts, then that process file descriptors table’s fd(file descriptor) 0, 1, 2 open automatically, (By default) each of these 3 fd references file table entry for a file named /dev/tty
@@ -25,7 +24,7 @@ The function get_next_line() lets you read from file descriptors, one line at a 
 
 ## INSTRUCTION
 
-## Algorithm
+## ALGORITHM
 
 The implementation is based on a persistent buffer (stash) using a static variable.
 
