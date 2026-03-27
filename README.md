@@ -88,6 +88,4 @@ It supports arbitrarily long lines.
 * Identify where memory leak errors are in the code
 * Used to help explain certain stuff I couldn't really grasp from some websites
 
-### Footnotes
-
 [^1]: [Static Variable : Geeks for Geeks](https://www.geeksforgeeks.org/c/static-variables-in-c/)
