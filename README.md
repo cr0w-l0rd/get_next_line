@@ -9,6 +9,9 @@ This project is about making a function that returns a line read from a **file d
 The project `get_next_line` is to create a function that takes in a `file descriptor` and outputs the next line in the file as a C-style string (unless an error occurs, or there is nothing left to read).
 
 A file descriptor is an **integer** like an **identifier** for a file that's in the program's **open file table**. 
+
+
+
 When a file is opened, it's given a file descriptor (the lowest positive integer that hasn't been used yet, starting from 3). 
 
 #### Standard File Descriptors
@@ -36,15 +39,15 @@ Once a newline is detected:
 A line is extracted and returned. Then, remaining data is kept in the stash for the next call.
 
 #### Steps
-1. Read from the file descriptor into a buffer.
-2. Append buffer content to the stash.
-3. Check if a newline exists in the stash.
+1. Read from fd into a buffer
+2. Append buffer content to the stash
+3. Check if a newline exists in the stash
 4. If yes:
-* Extract the line.
-* Update the stash (remove extracted part).
+* Extract the line
+* Update the stash (remove extracted part)
 5. If EOF is reached:
-* Return remaining data if any.
-6. Return NULL when no data remains.
+* Return remaining data if any
+6. Return NULL when no data remains
 
 #### Justification
 
@@ -68,21 +71,24 @@ It supports arbitrarily long lines.
 
 ## RESOURCES
 
-### Websites
+### Things I searched up
 
-1. [gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line)
-2. [buffer](https://stackoverflow.com/questions/27993971/understanding-buffering-in-c)
-3. [flushing](https://stackoverflow.com/questions/47735850/what-exactly-is-flushing)
-4. [community tester used](https://github.com/Tripouille/gnlTester)
+1. [gnl guide gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line)
+2. [whats a buffer](https://stackoverflow.com/questions/27993971/understanding-buffering-in-c)
+3. [what is flushing](https://stackoverflow.com/questions/47735850/what-exactly-is-flushing)
+4. [gnl tester](https://github.com/Tripouille/gnlTester) <- after own self testing
 
-### Footnotes
+### Resources Suggested By Peers
 
-[^1]: [Static Variable : Geeks for Geeks](https://www.geeksforgeeks.org/c/static-variables-in-c/)
+* https://www.geeksforgeeks.org/c/input-output-system-calls-c-create-open-close-read-write/
 
-https://www.geeksforgeeks.org/c/input-output-system-calls-c-create-open-close-read-write/
 
 ### AI Usage
 
 * Used to help to debug
 * Identify where memory leak errors are in the code
 * Used to help explain certain stuff I couldn't really grasp from some websites
+
+### Footnotes
+
+[^1]: [Static Variable : Geeks for Geeks](https://www.geeksforgeeks.org/c/static-variables-in-c/)
