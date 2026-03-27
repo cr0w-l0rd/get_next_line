@@ -10,8 +10,6 @@ The project `get_next_line` is to create a function that takes in a `file descri
 
 A file descriptor is an **integer** like an **identifier** for a file that's in the program's **open file table**. 
 
-
-
 When a file is opened, it's given a file descriptor (the lowest positive integer that hasn't been used yet, starting from 3). 
 
 #### Standard File Descriptors
@@ -81,7 +79,8 @@ It supports arbitrarily long lines.
 ### Resources Suggested By Peers
 
 * https://www.geeksforgeeks.org/c/input-output-system-calls-c-create-open-close-read-write/
-
+* https://youtu.be/saMebwRO-Q8?si=5Huhk3zbo61y-W3j
+* https://youtu.be/bNzMz6rb_3Y?si=nlCNNvTLOY4BhTpz
 
 ### AI Usage
 
