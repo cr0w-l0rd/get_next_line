@@ -25,6 +25,53 @@ The function get_next_line() lets you read from file descriptors, one line at a 
 
 ## INSTRUCTION
 
+#### Step 1
+
+`cc -Wall -Wextra -Werror -c get_next_line.c get_next_line_utils.c`
+
+#### Step 2
+
+`ar rcs get_next_line.a get_next_line.o get_next_line_utils.o`
+
+#### Step 3
+
+`cc -Wall -Wextra -Werror <whatevertestfile or prolly a main.c> get_next_line.a -o test.out`
+
+#### Step 4
+
+`./test.out <a file u wanna open/read from if ure using argv/argc or without adding a file if youre not>`
+
+### Example main.c file
+
+```
+int	main(int argc, char **argv)
+{
+	int		fd;
+	char	*line;
+	int		i;
+
+	if (argc != 2)
+		return (printf("Usage: ./test <file>\n"), 1);
+
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		return (perror("open failed"), 1);
+
+	i = 1;
+	line = get_next_line(fd);
+	while (line)
+	{
+		printf("line %d: [%s]", i, line);
+		free(line);
+		i++;
+		line = get_next_line(fd);
+	}
+	printf("\nline %d: [NULL]\n", i);
+	close(fd);
+	return (0);
+}
+```
+
 ## ALGORITHM
 
 The implementation is based on a persistent buffer (stash) using a static variable.
