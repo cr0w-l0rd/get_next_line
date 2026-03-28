@@ -116,7 +116,7 @@ It supports arbitrarily long lines.
 
 ### Things I searched up
 
-1. [gnl guide gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line)
+1. [gnl guide gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line) <- idea on how to start
 2. [whats a buffer](https://stackoverflow.com/questions/27993971/understanding-buffering-in-c)
 3. [what is flushing](https://stackoverflow.com/questions/47735850/what-exactly-is-flushing)
 4. [gnl tester](https://github.com/Tripouille/gnlTester) <- after own self testing

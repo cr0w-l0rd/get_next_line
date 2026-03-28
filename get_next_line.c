@@ -6,22 +6,20 @@
 /*   By: mbiusing <mbiusing@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 00:00:00 by mbiusing          #+#    #+#             */
-/*   Updated: 2026/03/28 16:28:13 by mbiusing         ###   ########.fr       */
+/*   Updated: 2026/03/28 17:51:13 by mbiusing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/*
-** Reads from the file descriptor and adds the new text to stash.
-** - stash = old saved text
-** - buffer = temporary space for this read
-** - bytes = number of bytes read
-** If read() returns:
-** > 0 : we append buffer to stash
-** = 0 : end of file
-** < 0 : error
-*/
+// Reads from the file descriptor and adds the new text to stash.
+// - stash = old saved text
+// - buffer = temporary space for this read
+// - bytes = number of bytes read
+// If read() returns:
+// > 0 : we append buffer to stash
+// = 0 : end of file
+// < 0 : error
 static char	*read_and_join(int fd, char *stash, char *buffer, ssize_t *bytes)
 {
 	char	*joined;
@@ -35,13 +33,11 @@ static char	*read_and_join(int fd, char *stash, char *buffer, ssize_t *bytes)
 	return (joined);
 }
 
-/*
-** Takes the current stash and extracts one full line from it.
-** eg:
-** stash = "hello\nworld"
-** returns "hello\n"
-** If there is no '\n', it returns everything left in stash.
-*/
+// Takes the current stash and extracts one full line from it.
+// eg:
+// stash = "hello\nworld"
+// returns "hello\n"
+// If there is no '\n', it returns everything left in stash.
 static char	*extract_line(char *stash)
 {
 	size_t	i;
@@ -56,14 +52,12 @@ static char	*extract_line(char *stash)
 	return (ft_substr(stash, 0, i));
 }
 
-/*
-** Removes the line we just returned from stash,
-** and keeps only the leftover part for the next call.
-** eg:
-** stash = "hello\nworld"
-** leftover = "world"
-** If there is nothing left after the line, returns NULL.
-*/
+// Removes the line we just returned from stash,
+// and keeps only the leftover part for the next call.
+// eg:
+// stash = "hello\nworld"
+// leftover = "world"
+// If there is nothing left after the line, returns NULL.
 static char	*update_stash(char *stash)
 {
 	size_t	i;
@@ -89,13 +83,11 @@ static char	*update_stash(char *stash)
 	return (leftover);
 }
 
-/*
-** Keeps reading from the file until:
-** - we find a '\n' in stash
-** - or we reach end of file
-** - or read() fails
-** This function builds the full stash before we extract one line.
-*/
+// Keeps reading from the file until:
+// - we find a '\n' in stash
+// - or we reach end of file
+// - or read() fails
+// This function builds the full stash before we extract one line.
 static char	*fill_stash(int fd, char *stash)
 {
 	char	*buffer;
@@ -123,13 +115,11 @@ static char	*fill_stash(int fd, char *stash)
 	return (stash);
 }
 
-/*
-** 1. Fill stash with enough text
-** 2. Extract one line from stash
-** 3. Update stash so only leftover text remains
-** 4. Return the line
-** static char *stash remembers leftover text between function calls
-*/
+// 1. Fill stash with enough text
+// 2. Extract one line from stash
+// 3. Update stash so only leftover text remains
+// 4. Return the line
+// static char *stash remembers leftover text between function calls
 char	*get_next_line(int fd)
 {
 	static char	*stash;

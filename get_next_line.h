@@ -6,7 +6,7 @@
 /*   By: mbiusing <mbiusing@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 00:00:00 by mbiusing          #+#    #+#             */
-/*   Updated: 2026/03/25 16:30:29 by mbiusing         ###   ########.fr       */
+/*   Updated: 2026/03/28 17:47:54 by mbiusing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+// Define the buffer size
+// So code can compile even without -D BUFFER_SIZE=n
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 67
 # endif
 
 char	*get_next_line(int fd);
+
+// functions needed in utils i took from libft
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
