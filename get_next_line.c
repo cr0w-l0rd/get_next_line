@@ -6,7 +6,7 @@
 /*   By: mbiusing <mbiusing@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 00:00:00 by mbiusing          #+#    #+#             */
-/*   Updated: 2026/03/28 22:09:30 by mbiusing         ###   ########.fr       */
+/*   Updated: 2026/03/28 22:45:26 by mbiusing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ char	*read_and_join(int fd, char *stash, char *buffer, ssize_t *bytes)
 	char	*joined;
 
 	*bytes = read(fd, buffer, BUFFER_SIZE);
-	if (*bytes <= 0)
+	if (*bytes < 0)
+		return (NULL);
+	if (*bytes == 0)
 		return (stash);
 	buffer[*bytes] = '\0';
 	joined = ft_strjoin(stash, buffer);
