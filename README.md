@@ -107,8 +107,6 @@ Multiple lines may be read in a single call.
 Using a static stash ensures:
 
 No data is lost between calls.
-The function behaves correctly across multiple invocations.
-It supports arbitrarily long lines.
 
 ### Main Things Learnt
 * `Static Variables`[^1]
