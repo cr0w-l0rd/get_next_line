@@ -19,7 +19,7 @@ When any process starts, the process fd table’s fd 0, 1, 2 open automatically,
 * `stdout` / Standard **output** stream : fd 1
 * `stderr` / Standard **error** stream : fd 2
 
-**Negative values** are used to indicate errors in opening files. File descriptors can also be used for other things, such as network connections.
+**Negative values** are used to indicate errors in opening files
 
 ## INSTRUCTIONS
 
@@ -119,7 +119,7 @@ It supports arbitrarily long lines.
 1. [gnl guide gitbook](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line) <- idea on how to start
 2. [whats a buffer](https://stackoverflow.com/questions/27993971/understanding-buffering-in-c)
 3. [what is flushing](https://stackoverflow.com/questions/47735850/what-exactly-is-flushing)
-4. [gnl tester](https://github.com/Tripouille/gnlTester) <- after own self testing
+4. [gnl tester](https://github.com/Tripouille/gnlTester) <- after own self mediocre minimal testing
 
 ### Resources Suggested By Peers
 
