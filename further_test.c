@@ -6,7 +6,7 @@
 /*   By: mbiusing <mbiusing@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 19:09:35 by mbiusing          #+#    #+#             */
-/*   Updated: 2026/03/28 19:09:56 by mbiusing         ###   ########.fr       */
+/*   Updated: 2026/03/28 19:17:28 by mbiusing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ static void	create_test_files(void)
 	fd = open("test_short.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	write(fd, "a\nhi\n\nok\nz\n", 11);
 	close(fd);
-
 	// exact / +/- cases
 	fd = open("test_exact.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	write(fd, "12345\n1234\n123456\n", 19);
 	close(fd);
-
-	// long lines (2000+)
+	// long line
 	fd = open("test_long.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	for (int i = 0; i < 2500; i++)
 		write(fd, "a", 1);
@@ -37,7 +35,6 @@ static void	create_test_files(void)
 		write(fd, "b", 1);
 	write(fd, "\nend\n", 5);
 	close(fd);
-
 	// mixed content
 	fd = open("test_mixed.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	write(fd, "a\n\nabc\n1234567\nx\nhello world\n\n42\n", 36);
@@ -48,8 +45,9 @@ static void	test_file(const char *filename)
 {
 	int		fd;
 	char	*line;
-	int		i = 1;
+	int		i;
 
+	i = 1;
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 	{
@@ -74,8 +72,9 @@ static void	test_file(const char *filename)
 static void	test_stdin(void)
 {
 	char	*line;
-	int		i = 1;
+	int		i;
 
+	i = 1;
 	printf("\n=== STDIN TEST ===\n");
 	printf("Type something (Ctrl+D to stop):\n");
 
@@ -94,13 +93,10 @@ static void	test_stdin(void)
 int	main(void)
 {
 	create_test_files();
-
-	test_file("test_short.txt");   // short + empty lines
-	test_file("test_exact.txt");   // exact / +/- cases
-	test_file("test_long.txt");    // long lines
-	test_file("test_mixed.txt");   // mixed content
-
-	test_stdin(); // stdin test
-
+	test_file("test_short.txt");
+	test_file("test_exact.txt");
+	test_file("test_long.txt");
+	test_file("test_mixed.txt");
+	test_stdin();
 	return (0);
 }
