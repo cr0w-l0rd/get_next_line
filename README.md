@@ -10,7 +10,7 @@ The project `get_next_line` is to create a function that takes in a `file descri
 
 A file descriptor (fd) is an **integer** like an **identifier** for a file that's in the program's **open file table**. 
 
-When a file is opened, it's given a fd, the lowest positive integer that hasn't been used yet, starting from 3. Why is that so?...
+When a file is opened, it's given a fd, the lowest positive integer that hasn't been used yet, starting from 3 (i think). So why is that so?...
 
 #### Standard File Descriptors
 When any process starts, the process fd table’s fd 0, 1, 2 open automatically, (by default) each of these 3 fd references file table entry for a file named `dev/tty`
@@ -78,7 +78,6 @@ int	main(int argc, char *argv[])
 
 The implementation is based on a persistent buffer (stash) using a static variable.
 
-#### Core Idea
 A **static variable** (*stash*) stores leftover data between function calls. The function reads chunks of size BUFFER_SIZE using read(). Each chunk is appended to the stash until a newline (\n) is found.
 
 Once a newline is detected:
@@ -106,7 +105,7 @@ Multiple lines may be read in a single call.
 
 Using a static stash ensures:
 
-No data is lost between calls.
+No data is lost between calls
 
 ### Main Things Learnt
 * `Static Variables`[^1]
