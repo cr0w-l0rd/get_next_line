@@ -6,7 +6,7 @@
 /*   By: mbiusing <mbiusing@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:09:20 by mbiusing          #+#    #+#             */
-/*   Updated: 2026/03/28 11:07:57 by mbiusing         ###   ########.fr       */
+/*   Updated: 2026/03/28 19:02:06 by mbiusing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char *argv[])
 	line = get_next_line(fd);
 	while (line)
 	{
-		printf("line %d: [%s]", i, line);
+		printf("line %d: [%s]\n", i, line);
 		free(line);
 		i++;
 		line = get_next_line(fd);

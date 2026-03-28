@@ -42,6 +42,10 @@ When any process starts, the process fd table’s fd 0, 1, 2 open automatically,
 ### Example main.c file
 
 ```
+#include <fcntl.h>
+#include <stdio.h>
+#include "get_next_line.h"
+
 int	main(int argc, char *argv[])
 {
 	int		fd;
@@ -59,7 +63,7 @@ int	main(int argc, char *argv[])
 	line = get_next_line(fd);
 	while (line)
 	{
-		printf("line %d: [%s]", i, line);
+		printf("line %d: [%s]\n", i, line);
 		free(line);
 		i++;
 		line = get_next_line(fd);
