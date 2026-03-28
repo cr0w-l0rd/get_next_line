@@ -84,7 +84,7 @@ Once a newline is detected:
 
 A line is extracted and returned. Then, remaining data is kept in the stash for the next call.
 
-#### Here's a basic rundown of how it goes
+#### Basic rundown of how it goes kinda
 1. Read from fd into a buffer
 2. Append buffer content to the stash
 3. Check if a newline exists in the stash
