@@ -6,7 +6,7 @@
 /*   By: mbiusing <mbiusing@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 00:00:00 by mbiusing          #+#    #+#             */
-/*   Updated: 2026/03/27 14:44:50 by mbiusing         ###   ########.fr       */
+/*   Updated: 2026/03/28 16:28:13 by mbiusing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 ** - stash = old saved text
 ** - buffer = temporary space for this read
 ** - bytes = number of bytes read
-**
 ** If read() returns:
 ** > 0 : we append buffer to stash
 ** = 0 : end of file
@@ -25,20 +24,20 @@
 */
 static char	*read_and_join(int fd, char *stash, char *buffer, ssize_t *bytes)
 {
-	char	*tmp;
+	char	*joined;
 
 	*bytes = read(fd, buffer, BUFFER_SIZE);
 	if (*bytes <= 0)
 		return (stash);
 	buffer[*bytes] = '\0';
-	tmp = ft_strjoin(stash, buffer);
+	joined = ft_strjoin(stash, buffer);
 	free(stash);
-	return (tmp);
+	return (joined);
 }
 
 /*
 ** Takes the current stash and extracts one full line from it.
-** Example:
+** eg:
 ** stash = "hello\nworld"
 ** returns "hello\n"
 ** If there is no '\n', it returns everything left in stash.
@@ -60,15 +59,15 @@ static char	*extract_line(char *stash)
 /*
 ** Removes the line we just returned from stash,
 ** and keeps only the leftover part for the next call.
-** Example:
+** eg:
 ** stash = "hello\nworld"
-** new_stash = "world"
+** leftover = "world"
 ** If there is nothing left after the line, returns NULL.
 */
-static char	*clean_stash(char *stash)
+static char	*update_stash(char *stash)
 {
 	size_t	i;
-	char	*new_stash;
+	char	*leftover;
 
 	if (!stash)
 		return (NULL);
@@ -80,14 +79,14 @@ static char	*clean_stash(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	new_stash = ft_strdup(stash + i + 1);
+	leftover = ft_strdup(stash + i + 1);
 	free(stash);
-	if (!new_stash || !new_stash[0])
+	if (!leftover || !leftover[0])
 	{
-		free(new_stash);
+		free(leftover);
 		return (NULL);
 	}
-	return (new_stash);
+	return (leftover);
 }
 
 /*
@@ -127,9 +126,9 @@ static char	*fill_stash(int fd, char *stash)
 /*
 ** 1. Fill stash with enough text
 ** 2. Extract one line from stash
-** 3. Clean stash so only leftover text remains
+** 3. Update stash so only leftover text remains
 ** 4. Return the line
-** static char *stash remembers leftover text between function calls.
+** static char *stash remembers leftover text between function calls
 */
 char	*get_next_line(int fd)
 {
@@ -142,6 +141,6 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	line = extract_line(stash);
-	stash = clean_stash(stash);
+	stash = update_stash(stash);
 	return (line);
 }

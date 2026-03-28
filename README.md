@@ -2,28 +2,26 @@
 
 # get_next_line
 
-This project is about making a function that returns a line read from a **file descriptor** or **fd**.
-
 ## DESCRIPTION
 
-The project `get_next_line` is to create a function that takes in a `file descriptor` and outputs the next line in the file as a C-style string (unless an error occurs, or there is nothing left to read).
+The project `get_next_line` is to create a function that takes in a `file descriptor` and outputs the next line in the file.
 
-A file descriptor is an **integer** like an **identifier** for a file that's in the program's **open file table**. 
+#### What is a file descriptor?
 
-When a file is opened, it's given a file descriptor (the lowest positive integer that hasn't been used yet, starting from 3). 
+A file descriptor (fd) is an **integer** like an **identifier** for a file that's in the program's **open file table**. 
+
+When a file is opened, it's given a fd, the lowest positive integer that hasn't been used yet, starting from 3. Why is that so?...
 
 #### Standard File Descriptors
-When any process starts, then that process file descriptors table’s fd(file descriptor) 0, 1, 2 open automatically, (By default) each of these 3 fd references file table entry for a file named /dev/tty
+When any process starts, the process fd table’s fd 0, 1, 2 open automatically, (by default) each of these 3 fd references file table entry for a file named `dev/tty`
 
-* `stdin` (file descriptor 0): Standard **input** stream, whenever we write any character from the keyboard, it reads from stdin through fd 0 and saves to a file named /dev/tty.
-* `stdout` (file descriptor 1): Standard **output** stream, any output to the video screen, it’s from the file named /dev/tty and written to stdout in screen through fd 1.
-* `stderr` (file descriptor 2): We see any **error** to the video screen, it is also from that file write to stderr in screen through fd 2.
+* `stdin` / Standard **input** stream : fd 0
+* `stdout` / Standard **output** stream : fd 1
+* `stderr` / Standard **error** stream : fd 2
 
-Negative values are used to indicate errors in opening files. File descriptors can also be used for other things, such as network connections.
+**Negative values** are used to indicate errors in opening files. File descriptors can also be used for other things, such as network connections.
 
-The function get_next_line() lets you read from file descriptors, one line at a time, which makes it much easier to parse data in human-readable formats.
-
-## INSTRUCTION
+## INSTRUCTIONS
 
 #### Step 1
 
@@ -44,7 +42,7 @@ The function get_next_line() lets you read from file descriptors, one line at a 
 ### Example main.c file
 
 ```
-int	main(int argc, char **argv)
+int	main(int argc, char *argv[])
 {
 	int		fd;
 	char	*line;
@@ -77,13 +75,13 @@ int	main(int argc, char **argv)
 The implementation is based on a persistent buffer (stash) using a static variable.
 
 #### Core Idea
-A static variable (stash) stores leftover data between function calls. The function reads chunks of size BUFFER_SIZE using read(). Each chunk is appended to the stash until a newline (\n) is found.
+A **static variable** (*stash*) stores leftover data between function calls. The function reads chunks of size BUFFER_SIZE using read(). Each chunk is appended to the stash until a newline (\n) is found.
 
 Once a newline is detected:
 
 A line is extracted and returned. Then, remaining data is kept in the stash for the next call.
 
-#### Steps
+#### Here's a basic rundown of how it goes
 1. Read from fd into a buffer
 2. Append buffer content to the stash
 3. Check if a newline exists in the stash
